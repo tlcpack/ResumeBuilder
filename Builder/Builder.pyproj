@@ -47,11 +47,13 @@
     <Compile Include="Builder\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Career_Builder\templates\Career_Builder\index.html" />
-    <Content Include="Career_Builder\templates\Career_Builder\login.html" />
-    <Content Include="Career_Builder\templates\Career_Builder\register.html" />
-    <Content Include="Career_Builder\templates\Career_Builder\resume.html" />
-    <Content Include="Career_Builder\templates\Career_Builder\create-resume.html" />
+    <Content Include="Career_Builder\static\script.js" />
+    <Content Include="Career_Builder\static\style.css" />
+    <Content Include="Career_Builder\templates\index.html" />
+    <Content Include="Career_Builder\templates\login.html" />
+    <Content Include="Career_Builder\templates\register.html" />
+    <Content Include="Career_Builder\templates\resume.html" />
+    <Content Include="Career_Builder\templates\create-resume.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
