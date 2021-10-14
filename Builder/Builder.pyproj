@@ -49,6 +49,9 @@
   <ItemGroup>
     <Content Include="Career_Builder\templates\Career_Builder\index.html" />
     <Content Include="Career_Builder\templates\Career_Builder\login.html" />
+    <Content Include="Career_Builder\templates\Career_Builder\register.html" />
+    <Content Include="Career_Builder\templates\Career_Builder\resume.html" />
+    <Content Include="Career_Builder\templates\Career_Builder\create-resume.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
