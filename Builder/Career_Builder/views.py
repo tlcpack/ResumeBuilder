@@ -13,6 +13,9 @@ client = FaunaClient(secret="fnAEVgZd9iAAQnZ0sCPSGtGTpaVm3NP_T-vSLjSs")
 
 indexes = client.query(q.paginate(q.indexes()))
 
+
+
+
 # Create your views here.
 def login(request):
     if request.method == "POST":
@@ -26,12 +29,12 @@ def login(request):
                     "id": user["ref"].id(),
                     "username": user["data"]["username"]
                 }
-                return redirect("App:index")
+                return redirect("Career_Builder:index")
             else:
                 raise Exception()
         except:
             messages.add_message(request, messages.INFO,"You have supplied invalid login credentials, please try again!", "danger")
-            return redirect("App:login")
+            return redirect("Career_Builder:login")
     return render(request,"login.html")
 
 def register(request):
@@ -43,7 +46,7 @@ def register(request):
         try:
             user = client.query(q.get(q.match(q.index("users_index"), username)))
             messages.add_message(request, messages.INFO, 'User already exists with that username.')
-            return redirect("App:register")
+            return redirect("Career_Builder:register")
         except:
             user = client.query(q.create(q.collection("Users"), {
                 "data": {
@@ -54,7 +57,7 @@ def register(request):
                 }
             }))
             messages.add_message(request, messages.INFO, 'Registration successful.')
-            return redirect("App:login")
+            return redirect("Career_Builder:login")
     return render(request,"register.html")
 
 def index(request):
@@ -104,7 +107,7 @@ def create_resume(request):
                 }
             }))
             messages.add_message(request, messages.INFO, 'Resume Info Edited Successfully. Download Resume Now')
-            return redirect("App:create-resume")
+            return redirect("Career_Builder:create-resume")
         except:
             quiz = client.query(q.create(q.collection("Resume_Info"), {
                 "data": {
@@ -127,7 +130,7 @@ def create_resume(request):
                 }
             }))
             messages.add_message(request, messages.INFO, 'Resume Info Saved Successfully. Download Resume Now')
-            return redirect("App:resume")
+            return redirect("Career_Builder:resume")
     else:
         try:
             resume_info = client.query(q.get(q.match(q.index("resume_index"), request.session["user"]["username"])))["data"]
